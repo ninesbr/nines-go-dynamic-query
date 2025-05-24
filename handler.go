@@ -91,7 +91,7 @@ func NewQueryHandler[T any](cfg QueryHandlerConfig[T]) http.HandlerFunc {
 		selects = ApplySelectAliases(selects, cfg.AliasMap)
 
 		// executa query genérica
-		data, total, err := queryDynamic[T](
+		data, total, err := QueryDynamic[T](
 			r.Context(), cfg.DB, cfg.Model,
 			filters, sorts, selects,
 			take, offset,
@@ -125,7 +125,7 @@ func NewQueryHandler[T any](cfg QueryHandlerConfig[T]) http.HandlerFunc {
 
 // queryDynamic (sem alterações) permanece igual...
 // queryDynamic executa a query e retorna rowsData + total.
-func queryDynamic[T any](
+func QueryDynamic[T any](
 	ctx context.Context,
 	db *gorm.DB,
 	model T,
