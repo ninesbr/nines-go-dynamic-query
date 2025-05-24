@@ -1,4 +1,4 @@
-module github.com/ninesbr/nines-go-dynmic-query
+module github.com/ninesbr/nines-go-dynamic-query
 
 go 1.24.0
 
